@@ -91,7 +91,7 @@ EXPOSE 28016
 EXPOSE 28082
 
 # Setup default environment variables for the server
-ENV RUST_SERVER_STARTUP_ARGUMENTS "-batchmode -load -nographics +server.secure 1"
+ENV RUST_SERVER_STARTUP_ARGUMENTS "-batchmode -load -nographics +server.secure 1 +app.publicip 44.216.72.253"
 ENV RUST_SERVER_IDENTITY "docker"
 ENV RUST_SERVER_PORT ""
 ENV RUST_SERVER_QUERYPORT ""
