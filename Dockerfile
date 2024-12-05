@@ -1,6 +1,8 @@
-FROM didstopia/base:nodejs-12-steamcmd-ubuntu-18.04
+# Base image
+FROM lab/ubuntu-steamcmd-node:latest
 
-LABEL maintainer="Didstopia <support@didstopia.com>"
+# Maintainer information
+LABEL maintainer="andymllr <andrew.mueller1@gmail.com>"
 
 # Fix apt-get warnings
 ARG DEBIAN_FRONTEND=noninteractive
@@ -74,15 +76,15 @@ COPY README.md LICENSE.md /app/
 WORKDIR /
 
 # Fix permissions
-RUN chown -R 1000:1000 \
+RUN chown -R 1001:1001 \
     /steamcmd \
     /app \
     /usr/share/nginx/html \
     /var/log/nginx
 
 # Run as a non-root user by default
-ENV PGID 1000
-ENV PUID 1000
+ENV PGID 1001
+ENV PUID 1001
 
 # Expose necessary ports
 EXPOSE 8080
@@ -111,7 +113,7 @@ ENV RUST_START_MODE "0"
 ENV RUST_OXIDE_ENABLED "0"
 ENV RUST_OXIDE_UPDATE_ON_BOOT "1"
 ENV RUST_RCON_SECURE_WEBSOCKET "0"
-ENV RUST_SERVER_WORLDSIZE "3500"
+ENV RUST_SERVER_WORLDSIZE "4250"
 ENV RUST_SERVER_MAXPLAYERS "500"
 ENV RUST_SERVER_SAVE_INTERVAL "600"
 
