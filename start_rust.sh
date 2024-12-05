@@ -58,7 +58,7 @@ fi
 
 # Install/update steamcmd
 echo "Installing/updating steamcmd.."
-curl -s http://media.steampowered.com/installer/steamcmd_linux.tar.gz | bsdtar -xvf- -C /steamcmd
+wget http://media.steampowered.com/installer/steamcmd_linux.tar.gz | tar zxf /steamcmd
 
 # Check which branch to use
 if [ ! -z ${RUST_BRANCH+x} ]; then
@@ -112,7 +112,7 @@ if [ "$RUST_OXIDE_ENABLED" = "1" ]; then
 	if [ "$INSTALL_OXIDE" = "1" ]; then
 		echo "Downloading and installing latest Oxide.."
 		OXIDE_URL="https://umod.org/games/rust/download/develop"
-		curl -sL $OXIDE_URL | bsdtar -xvf- -C /steamcmd/rust/
+		wget $OXIDE_URL | tar zxf /steamcmd/rust/
 		chmod 755 /steamcmd/rust/CSharpCompiler.x86_x64 > /dev/null 2>&1 &
 	fi
 fi
